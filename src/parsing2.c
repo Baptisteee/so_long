@@ -1,0 +1,92 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing2.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: babodere <babodere@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/25 17:41:57 by babodere          #+#    #+#             */
+/*   Updated: 2025/05/25 17:41:57 by babodere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include "so_long.h"
+
+int	find_collectibles(char **map)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == CELL_COLLECTIBLE)
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+int	get_line_length(char **map)
+{
+	int	i;
+	int	j;
+	int	line_len;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			j++;
+		}
+		if (line_len == 0)
+			line_len = j;
+		if (j != line_len)
+			return (0);
+		i++;
+	}
+	return (line_len - 1);
+}
+
+int	get_number_of_lines(char **map)
+{
+	int	i;
+	
+	i = 0;
+	while (map[i])
+		i++;
+	return (i);
+}
+
+int	is_surrounded_by_walls(char **map)
+{
+	int	i;
+	int	line_len;
+
+	i = 0;
+	line_len = get_line_length(map);
+	while (map[i] && map[i][0])
+	{
+		if (map[i][0] != CELL_WALL || map[i][line_len] != CELL_WALL)
+			return (0);
+		i++;
+	}
+	line_len = get_number_of_lines(map) - 1;
+	while (map[0][i])
+	{
+		if (map[0][i] != CELL_WALL || map[line_len][i] != CELL_WALL)
+			return (0);
+		i++;
+	}
+	return (1);
+}

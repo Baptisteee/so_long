@@ -1,0 +1,36 @@
+[
+ {
+  "directory": "/home/babodere/42Cursus/so_long",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MP",
+   "-MMD",
+   "-Ilibft",
+   "-c",
+   "-o",
+   "build/so_long.o",
+   "src/so_long.c"
+  ],
+  "file": "src/so_long.c"
+ },
+ {
+  "directory": "/home/babodere/42Cursus/so_long",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MP",
+   "-MMD",
+   "-Ilibft",
+   "-c",
+   "-o",
+   "build/parsing.o",
+   "src/parsing.c"
+  ],
+  "file": "src/parsing.c"
+ }
+]
