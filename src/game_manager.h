@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   game_manager.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babodere <babodere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 23:46:29 by babodere          #+#    #+#             */
-/*   Updated: 2025/05/23 00:49:18 by babodere         ###   ########.fr       */
+/*   Created: 2025/06/05 04:31:02 by babodere          #+#    #+#             */
+/*   Updated: 2025/06/05 13:31:09 by babodere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#ifndef GAME_MANAGER_H
+# define GAME_MANAGER_H
 
-# include <stddef.h>
+# include "parsing.h"
+# include "so_long.h"
 
-typedef struct s_dynamic_array
+typedef struct s_mlx_data	t_mlx_data;
+
+typedef struct s_game
 {
-	char	**data;
-	size_t	capacity;
-	size_t	size;
-}			t_vector;
+	t_map					*map;
+	t_loc					*player_pos;
+	t_mlx_data				*mlx_data;
+	int						moves;
+}							t_game;
 
-int			vector_grow(t_vector *vec, size_t new_cap);
-int			vector_push(t_vector *vec, char *e);
-char		*vector_pop(t_vector *vec);
-void		vector_destroy(t_vector *vec);
-t_vector	vector_init(void);
+void						move_player(t_game *game, int x, int y);
 
 #endif

@@ -8,11 +8,13 @@
    "-Werror",
    "-MP",
    "-MMD",
-   "-Ilibft",
+   "-ggdb",
    "-c",
    "-o",
    "build/so_long.o",
-   "src/so_long.c"
+   "src/so_long.c",
+   "-Ilibft",
+   "-Iminilibx-linux"
   ],
   "file": "src/so_long.c"
  },
@@ -25,12 +27,71 @@
    "-Werror",
    "-MP",
    "-MMD",
-   "-Ilibft",
+   "-ggdb",
    "-c",
    "-o",
    "build/parsing.o",
-   "src/parsing.c"
+   "src/parsing.c",
+   "-Ilibft",
+   "-Iminilibx-linux"
   ],
   "file": "src/parsing.c"
+ },
+ {
+  "directory": "/home/babodere/42Cursus/so_long",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MP",
+   "-MMD",
+   "-ggdb",
+   "-c",
+   "-o",
+   "build/parsing2.o",
+   "src/parsing2.c",
+   "-Ilibft",
+   "-Iminilibx-linux"
+  ],
+  "file": "src/parsing2.c"
+ },
+ {
+  "directory": "/home/babodere/42Cursus/so_long",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MP",
+   "-MMD",
+   "-ggdb",
+   "-c",
+   "-o",
+   "build/vector.o",
+   "src/vector.c",
+   "-Ilibft",
+   "-Iminilibx-linux"
+  ],
+  "file": "src/vector.c"
+ },
+ {
+  "directory": "/home/babodere/42Cursus/so_long",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-MP",
+   "-MMD",
+   "-ggdb",
+   "-c",
+   "-o",
+   "build/mlx_manager.o",
+   "src/mlx_manager.c",
+   "-Ilibft",
+   "-Iminilibx-linux"
+  ],
+  "file": "src/mlx_manager.c"
  }
 ]

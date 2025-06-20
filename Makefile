@@ -12,12 +12,13 @@
 
 NAME := so_long
 
-SRCS := so_long.c parsing.c parsing2.c vector.c
+SRCS := so_long.c parsing.c parsing2.c vector.c mlx_manager.c game_manager.c \
+		sprite_animation.c
 
 SRC_DIR := src
 
 FLAGS := -Wall -Wextra -Werror -MP -MMD -ggdb
-INCLUDES := -Llibft -lft 
+LIBS := -Llibft -lft -Lminilibx-linux -lmlx -lXext -lX11
 BUILD_ROOT := build
 BUILD_DIR := $(BUILD_ROOT)
 
@@ -35,7 +36,7 @@ all: $(NAME)
 -include $(DEPS)
 
 $(NAME): $(MINILIBX) $(LIBFT) $(OBJS:%=$(BUILD_DIR)/%)
-	cc ${CFLAGS} $(OBJS:%=$(BUILD_DIR)/%) -o $@ $(INCLUDES)
+	cc ${CFLAGS} $(OBJS:%=$(BUILD_DIR)/%) -o $@ $(LIBS)
 
 $(MINILIBX):
 	$(MAKE_MINILIBX) all
@@ -47,7 +48,7 @@ re: fclean all
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(BUILD_DIR)
-	cc $(FLAGS) -c -o $@ $< -Ilibft
+	cc $(FLAGS) -c -o $@ $< -Ilibft -Iminilibx-linux
 
 clean:
 	@$(MAKE_LIBFT) $@

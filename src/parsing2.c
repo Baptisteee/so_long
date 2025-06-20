@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "parsing.h"
 #include "so_long.h"
+#include <libft.h>
 
 int	find_collectibles(char **map)
 {
@@ -19,6 +20,7 @@ int	find_collectibles(char **map)
 	int	j;
 	int	count;
 
+	reset_map(map);
 	i = 0;
 	count = 0;
 	while (map[i])
@@ -42,6 +44,7 @@ int	get_line_length(char **map)
 	int	line_len;
 
 	i = 0;
+	line_len = 0;
 	while (map[i])
 	{
 		j = 0;
@@ -55,13 +58,13 @@ int	get_line_length(char **map)
 			return (0);
 		i++;
 	}
-	return (line_len - 1);
+	return (line_len);
 }
 
 int	get_number_of_lines(char **map)
 {
 	int	i;
-	
+
 	i = 0;
 	while (map[i])
 		i++;
@@ -74,7 +77,7 @@ int	is_surrounded_by_walls(char **map)
 	int	line_len;
 
 	i = 0;
-	line_len = get_line_length(map);
+	line_len = get_line_length(map) - 1;
 	while (map[i] && map[i][0])
 	{
 		if (map[i][0] != CELL_WALL || map[i][line_len] != CELL_WALL)
@@ -89,4 +92,31 @@ int	is_surrounded_by_walls(char **map)
 		i++;
 	}
 	return (1);
+}
+
+t_loc	find_player_spawn(char **map)
+{
+	t_loc	loc;
+	int		i;
+	int		j;
+
+	i = 0;
+	loc.x = -1;
+	loc.y = -1;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == CELL_PLAYER_SPAWN)
+			{
+				loc.x = j;
+				loc.y = i;
+				return (loc);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (loc);
 }

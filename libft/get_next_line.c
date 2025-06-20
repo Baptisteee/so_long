@@ -78,7 +78,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || !retval)
 		return (free(retval), stash[0] = 0, NULL);
 	if (check_retval(stash, retval) == 1)
-		return (ft_strdup(retval));
+		return (ft_strnew(retval));
 	retval = read_line(fd, stash, retval);
 	if (!retval)
 		return (stash[0] = 0, NULL);

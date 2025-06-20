@@ -19,7 +19,7 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 		ft_putnbr_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_substr.c \
 		ft_split.c ft_striteri.c ft_strjoin.c ft_strmapi.c \
 		ft_itoa.c ft_strtrim.c utils.c ft_puthex.c ft_printf.c \
-		get_next_line.c get_next_line_utils.c
+		get_next_line.c get_next_line_utils.c ft_strcmp.c
 
 OBJS = $(SRCS:%.c=${OBJS_DIR}%.o)
 
@@ -36,7 +36,7 @@ INCLUDES = .
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 NAME = libft.a
 

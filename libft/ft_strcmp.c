@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babodere <babodere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 23:46:29 by babodere          #+#    #+#             */
-/*   Updated: 2025/05/23 00:49:18 by babodere         ###   ########.fr       */
+/*   Created: 2025/06/16 00:52:36 by babodere          #+#    #+#             */
+/*   Updated: 2025/06/16 00:52:36 by babodere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
-
-# include <stddef.h>
-
-typedef struct s_dynamic_array
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	char	**data;
-	size_t	capacity;
-	size_t	size;
-}			t_vector;
+	int	index;
 
-int			vector_grow(t_vector *vec, size_t new_cap);
-int			vector_push(t_vector *vec, char *e);
-char		*vector_pop(t_vector *vec);
-void		vector_destroy(t_vector *vec);
-t_vector	vector_init(void);
-
-#endif
+	index = 0;
+	while (s1[index] && s2[index] && s1[index] == s2[index])
+		index++;
+	return (s1[index] - s2[index]);
+}
