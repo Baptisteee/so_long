@@ -6,7 +6,7 @@
 /*   By: babodere <babodere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 19:42:51 by babodere          #+#    #+#             */
-/*   Updated: 2025/06/20 21:52:40 by babodere         ###   ########.fr       */
+/*   Updated: 2025/06/21 00:18:06 by babodere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ t_map	*create_struct(char *file_path)
 	loc = find_player_spawn(map->data);
 	if (loc.x == -1 || loc.y == -1)
 		return (free_tab(map->data), map->error->message = ERROR_2, map);
-	if (!check_map(map->data) || find_path(map->data, loc.x, loc.y)
+	if (!check_map(map->data) || find_path(map->data, loc.y, loc.x)
 		- 1 != find_collectibles(map->data))
 		return (free_tab(map->data), map->error->message = ERROR_3, map);
 	if (!is_surrounded_by_walls(map->data))
